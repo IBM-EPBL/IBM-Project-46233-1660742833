@@ -1,13 +1,11 @@
 import re
 import ibm_db
 from flask import Flask, render_template, request, session
-
 global table
 global userid
 
 
 def insertTableData(conn, username, email, password, age, profession, table):
-    table = 'no'
     sql = "INSERT INTO usersdetails(username,email,password,age,profession,table) VALUES ('{}','{}','{}','{}','{}','{}')".format(
         username, email,
         password, age, profession, table)
@@ -73,7 +71,7 @@ def displayDetails(userid):
 
 try:
     conn = ibm_db.connect(
-        "DATABASE=bludb;HOSTNAME=98538591-7217-4024-b027-8baa776ffad1.c3n41cmd0nqnrk39u98g.databases.appdomain.cloud;PORT=30875;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;PROTOCOL=TCPIP;UID=bkf39982;PWD=tnRiAWwYZEwQOptp;",
+        "DATABASE=bludb;HOSTNAME=b0aebb68-94fa-46ec-a1fc-1c999edb6187.c3n41cmd0nqnrk39u98g.databases.appdomain.cloud;PORT=31249;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;PROTOCOL=TCPIP;UID=knj87870;PWD=9K9JrtsvVR8B64Ne;",
         "", "")
     print("Db connected")
 except:
@@ -141,9 +139,10 @@ def register():
         elif not re.match(r'[A-Za-z0-9]+', username):
             msg = 'name must contain only characters and numbers !'
         else:
+            table = 'no'
             insertTableData(conn, username, email, password, age, profession, table)
             return render_template('login.html')
-    return render_template('registration.html',msg=msg)
+    return render_template('registration.html')
 
 
 @app.route("/add", methods=['POST', 'GET'])
