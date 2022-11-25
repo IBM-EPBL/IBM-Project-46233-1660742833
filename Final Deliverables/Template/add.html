@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Add Daily Expense</title>
+
+    <style type="text/css">
+        body{
+            background-color:rgb(255,228,181);
+        }
+
+        form{
+            margin-left: 550px;
+            width: 30%;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+     <nav class="h1 navbar navbar-light" style="background-color: #ffa500;" text-white justify-content-between">
+      <a class="navbar-brand">Personal Expense Tracker Application</a>
+  </nav>
+
+    <br>
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">Add your daily expense and minimize your unwanted expenses.</p>
+      <footer class="blockquote-footer">Save  your money<cite title="Job__Finder"></cite></footer>
+    </blockquote>
+
+    <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Add Expense</h3>
+            <form action="/addexpense" method="POST">
+
+                <div class="form-group">
+                     <label for="">Date</label>
+                     <input class="form-control" type="datetime-local" name="date" id="date">
+                    </div>
+
+
+                <div class="form-group"> <label for="">Expense name</label>
+                    <input class="form-control" type="text" name="expensename" id="expensename">
+                </div>
+
+
+                <div class="form-group">
+                     <label for="">Expense Amount</label>
+                      <input class="form-control"  type="number" min="0" name="amount" id="amount">
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for=""></label>
+                    <select class="form-control" name="paymode" id="paymode">
+                        <option  selected hidden>Pay-Mode</option>
+                        <option name="cash" value="cash">cash</option>
+                        <option name="debitcard" value="debitcard">debitcard</option>
+                        <option name="creditcard" value="creditcard">creditcard</option>
+                        <option name="epayment" value="epayment">UPI</option>
+                        <option name="onlinebanking" value="onlinebanking">onlinebanking</option>
+
+                    </select>
+
+
+
+
+                 <div class="form-group">
+                    <label for=""></label>
+                    <select class="form-control" name="category" id="category">
+
+                         <option selected hidden>Category</option>
+                        <option   name = "food" value="food">food</option>
+                        <option name = "entertainment" value="entertainment">Entertainment</option>
+                        <option name = "business" value="business">Business</option>
+                        <option name ="rent" value="rent">Rent</option>
+                        <option name = "EMI" value="EMI">EMI</option>
+                        <option name = "other" value="other">other</option>
+
+                    </select>
+                </div>
+
+
+
+                <input class="btn btn-danger" type="submit" value="Add" id="">
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
